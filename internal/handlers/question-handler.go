@@ -1,10 +1,12 @@
 package handlers
 
 import (
+	"net/http"
+	"strconv"
+
 	"github.com/adyfp24/gin-ngl-clone/internal/models"
 	"github.com/adyfp24/gin-ngl-clone/internal/repositories"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func QuestionRender(c *gin.Context) {
@@ -45,5 +47,23 @@ func ReadAllQuestion(c *gin.Context) {
 }
 
 func ReadQuestionById(c *gin.Context) {
-	c.HTML(200, "question-detail.html", nil)
+	messsageID := c.Param("id")
+	parseID, err := strconv.ParseInt(messsageID, 10, 64)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid question ID"})
+        return	
+	}
+	question, err := repositories.ReadQuestionById(uint(parseID))
+	if err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+        return
+    }
+    if question == nil {
+        c.JSON(http.StatusNotFound, gin.H{"error": "Question not found"})
+        return
+    }
+
+	c.HTML(200, "question-detail.html", gin.H{
+		"question": question,
+	})
 }
