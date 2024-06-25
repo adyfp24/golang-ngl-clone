@@ -19,12 +19,12 @@ func CreateQuestion(c *gin.Context) {
 		return
 	}
 
-	chat := models.Chat{
+	message := models.Chat{
 		Question: input.Question,
 		UserID: 1,
 	}
 
-	if err := repositories.CreateChat(&chat); err != nil {
+	if err := repositories.CreateQuestion(&message); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
@@ -33,7 +33,15 @@ func CreateQuestion(c *gin.Context) {
 }
 
 func ReadAllQuestion(c *gin.Context) {
-	c.HTML(200, "all-question.html", nil)
+    questions, err := repositories.ReadAllQuestion(1) 
+    if err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+        return
+    }
+
+    c.HTML(http.StatusOK, "all-question.html", gin.H{
+        "questions": questions,
+    })
 }
 
 func ReadQuestionById(c *gin.Context) {

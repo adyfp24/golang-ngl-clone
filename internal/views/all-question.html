@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>All Questions</title>
 </head>
 <body>
-    <div>all question page</div>
+    <div>All Questions Page</div>
+    <div>
+        <ul>
+            {{ range .questions }}
+            <li>{{ .Question }}</li>
+            {{ end }}
+        </ul>
+    </div>
 </body>
 </html>
