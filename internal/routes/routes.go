@@ -7,7 +7,12 @@ import(
 
 func InitRoute(route *gin.Engine){
 
-	route.GET("/question", handlers.CreateQuestion)
-	
+	route.GET("/question", handlers.QuestionRender)
+	route.POST("/create-question", handlers.CreateQuestion)
 
+	route.GET("/question-all", handlers.ReadAllQuestion)
+	route.GET("/question/:id", handlers.ReadQuestionById)
+
+	route.GET("/answer/:id", handlers.AnswerRender)
+	route.POST("/answer/:id", handlers.CreateAnswer)
 }

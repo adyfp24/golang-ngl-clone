@@ -17,8 +17,7 @@ func main() {
 	app := gin.Default()
 
 	app.StaticFS("/static", http.Dir("./web/static"))
-	app.LoadHTMLGlob("./web/static/templates/pages/*")
-	app.LoadHTMLGlob("./web/static/templates/layout/*")
+	app.LoadHTMLGlob("./internal/views/*")
 	
 	app.Use(cors.Default())
 	app.GET("/", func(ctx *gin.Context) {
