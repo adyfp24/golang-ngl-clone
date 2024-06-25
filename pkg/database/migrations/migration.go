@@ -2,7 +2,7 @@ package migrations
 
 import(
 	"fmt"
-	"github.com/adyfp24/gin-ngl-clone/database"
+	"github.com/adyfp24/gin-ngl-clone/pkg/database"
 	"log"
 )
 
