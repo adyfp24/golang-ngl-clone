@@ -1,18 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        @keyframes rubberBand {
+            0% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1);
+            }
+            40% {
+                transform: scale(0.95);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            65% {
+                transform: scale(0.97);
+            }
+            75% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .animate-rubberBand {
+            animation: rubberBand 2s infinite;
+            transform-origin: center;
+        }
+
+    </style>
 </head>
-<body>
-    <div>create question</div>
-    <div>
-        <form action="/create-question" method="POST">
-            <label for="question">silahkan masukan pertanyaan</label>
-            <input name="question" id="question" type="text">
-            <button type="submit">submit</button>
-        </form>
+
+<body class="bg-red-400 mx-2 my-6">
+    <div class="mx-4 mt-12 h-56 mb-4 glass rounded-3xl">
+        <div class="flex py-2 mb-2 bg-white rounded-t-3xl">
+            <div class="flex mx-2">
+                <img class="w-12" src="../../web/static/img/Tote_Bag_Mockup__Front_View_1-removebg-preview.png" alt="">
+            </div>
+            <div class="flex items-start flex-col">
+                <h4 class="font-thin text-sm">@adyfirdau5_</h4>
+                <h2 class="font-bold">kirimi aku pesan anonim!</h2>
+            </div>
+        </div>
+
+        <div id="form-section" class=" mx-4">
+            <form action="/create-question" method="POST">
+                <input class="placeholder-slate-500 placeholder-opacity-50 placeholder-inherit outline-none flex items-start justify-start h-32 text-xl font-semibold text-black w-full bg-transparent" name="question"
+                    id="question" placeholder="kirim pesan anonim padaku..." type="text">
+            </form>
+        </div>
+    </div>
+    <div class="flex flex-col mx-4 items-center">
+        <p class="text-white mb-4 text-sm font-light">🔒 tanya-jawab anonim</p>
+        <button id="submit" class="w-full bg-black px-8 py-3 rounded-full text-2xl font-bold text-white">kirim!</button>
+    </div>
+    
+    <div id="bottom-section" class="flex flex-col items-center justify-center mx-4 mt-20">
+        <p class="text-white text-wrap font-bold text-center text-base mb-4">👇2916 orang baru saja mengetuk tombol ini👇</p>
+        <button id="submit" class="animate-rubberBand w-full bg-black px-1 py-5 rounded-full text-base font-bold text-white">Dapatkan pesan untukmu sendiri!</button>
+        <div class="flex mt-4">
+            <h3 class="text-gray-200 font-semibold text-xs mr-2">Terms</h3>
+            <h3 class="text-gray-200 font-semibold text-xs">Privacy</h3>
+        </div>
     </div>
 </body>
+
 </html>
