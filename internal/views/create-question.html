@@ -9,7 +9,7 @@
     <style>
         body {
             background: rgb(241, 41, 131);
-            background: linear-gradient(119deg, rgba(241, 41, 131, 1) 31%, rgba(224, 160, 24, 1) 84%);
+            background: linear-gradient(106deg, rgba(241, 41, 131, 1) 31%, rgba(223, 167, 48, 1) 99%);
         }
 
         .glass {
@@ -58,41 +58,41 @@
     </style>
 </head>
 
-<body class="mx-2 py-6 h-screen">
-    <div class="mx-4 mt-5 h-52 mb-4 glass rounded-3xl">
+<body class="h-screen py-6 mx-2">
+    <div class="mx-4 mt-5 mb-4 h-52 glass rounded-3xl">
         <div class="flex py-2 mb-2 bg-white rounded-t-3xl">
             <div class="flex mx-2">
-                <img class="w-12" src="/static/img/pp.png" alt="">
+                <img class="w-12" src="/static/img/pp.jpg" alt="">
             </div>
-            <div class="flex items-start flex-col">
-                <h4 class="font-base text-sm">@adyfirdau5_</h4>
+            <div class="flex flex-col items-start">
+                <h4 class="text-sm font-base">@adyfirdau5_</h4>
                 <h2 class="font-bold">kirimi aku pesan anonim!</h2>
             </div>
         </div>
 
-        <div id="form-section" class=" mx-4">
+        <div id="form-section" class="mx-4 ">
             <form id="form-message" action="/create-question" method="POST">
                 <input
-                    class="placeholder-slate-500 placeholder-opacity-50 placeholder-inherit outline-none flex items-start justify-start h-32 text-xl font-semibold text-black w-full bg-transparent"
+                    class="flex items-start justify-start w-full h-32 text-xl font-semibold text-black placeholder-opacity-50 bg-transparent outline-none placeholder-slate-500 placeholder-inherit"
                     name="question" id="question" placeholder="kirim pesan anonim padaku..." type="text">
             </form>
         </div>
     </div>
-    <div class="flex flex-col mx-4 items-center">
-        <p class="text-white mb-4 text-sm font-light">🔒 tanya-jawab anonim</p>
+    <div class="flex flex-col items-center mx-4">
+        <p class="mb-4 text-sm font-light text-white">🔒 tanya-jawab anonim</p>
         <button id="submit-message"
-            class="w-full bg-black px-8 py-3 rounded-full text-2xl font-bold text-white">kirim!</button>
+            class="w-full px-8 py-3 text-2xl font-bold text-white bg-black rounded-full">kirim!</button>
     </div>
 
     <div id="bottom-section" class="flex flex-col items-center justify-center mx-4 mt-24">
-        <p class="text-white text-wrap font-bold text-center text-base mb-4">👇2916 orang baru saja mengetuk tombol
+        <p class="mb-4 text-base font-bold text-center text-white text-wrap">👇2916 orang baru saja mengetuk tombol
             ini👇</p>
         <button id="submit"
-            class="animate-rubberBand w-full bg-black px-1 py-5 rounded-full text-base font-bold text-white">Dapatkan
+            class="w-full px-1 py-5 text-lg font-bold text-white bg-black rounded-full animate-rubberBand">Dapatkan
             pesan untukmu sendiri!</button>
         <div class="flex mt-4">
-            <h3 class="text-gray-200 font-semibold text-xs mr-2">Terms</h3>
-            <h3 class="text-gray-200 font-semibold text-xs">Privacy</h3>
+            <h3 class="mr-2 text-xs font-semibold text-gray-200">Terms</h3>
+            <h3 class="text-xs font-semibold text-gray-200">Privacy</h3>
         </div>
     </div>
 

@@ -31,7 +31,7 @@ func CreateQuestion(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Pertanyaan berhasil dibuat"})
+	c.HTML(http.StatusOK, "success-sending.html" ,gin.H{"message": "Pertanyaan berhasil dibuat"})
 }
 
 func ReadAllQuestion(c *gin.Context) {
