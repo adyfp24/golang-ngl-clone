@@ -1,16 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Question detal & Answer Question</title>
 </head>
 <body>
-    <h1>question detail by id</h1>
+    <div>Answer Question</div>
     <div>
-       <p>pesan : {{ .question.Question }} </p>
-       <br>
-       <p>jawaban : {{ .question.Answer }}</p>
+        <form action="/answer/{{ .question.ID }}" method="POST">
+            <p>Question: {{ .question.Question }}</p>
+            <label for="answer">Your Answer</label>
+            <input id="answer" name="answer" type="text">
+            <button type="submit">Submit</button>
+        </form>
     </div>
 </body>
 </html>

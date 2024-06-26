@@ -54,6 +54,7 @@ func ReadQuestionById(c *gin.Context) {
         return	
 	}
 	question, err := repositories.ReadQuestionById(uint(parseID))
+	
 	if err != nil {
         c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
         return

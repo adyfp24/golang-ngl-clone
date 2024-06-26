@@ -13,6 +13,5 @@ func InitRoute(route *gin.Engine){
 	route.GET("/question-all", handlers.ReadAllQuestion)
 	route.GET("/question/:id", handlers.ReadQuestionById)
 
-	route.GET("/answer/:id", handlers.AnswerRender)
 	route.POST("/answer/:id", handlers.CreateAnswer)
 }
