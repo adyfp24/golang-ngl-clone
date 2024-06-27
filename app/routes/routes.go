@@ -2,7 +2,7 @@ package routes
 
 import(
 	"github.com/gin-gonic/gin"
-	"github.com/adyfp24/gin-ngl-clone/internal/handlers"
+	"github.com/adyfp24/golang-ngl-clone/app/handlers"
 )
 
 func InitRoute(route *gin.Engine){

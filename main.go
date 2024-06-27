@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/adyfp24/gin-ngl-clone/pkg/database/migrations"
-	"github.com/adyfp24/gin-ngl-clone/internal/routes"
-	"github.com/adyfp24/gin-ngl-clone/config"
+	"github.com/adyfp24/golang-ngl-clone/pkg/database/migrations"
+	"github.com/adyfp24/golang-ngl-clone/app/routes"
+	"github.com/adyfp24/golang-ngl-clone/config"
 	"github.com/spf13/viper"
 	"github.com/gin-gonic/gin"
 	"log"
@@ -17,7 +17,7 @@ func main() {
 	app := gin.Default()
 
 	app.StaticFS("/static", http.Dir("./web/static"))
-	app.LoadHTMLGlob("./internal/views/*")
+	app.LoadHTMLGlob("./app/views/*")
 	
 	app.Use(cors.Default())
 	app.GET("/", func(ctx *gin.Context) {

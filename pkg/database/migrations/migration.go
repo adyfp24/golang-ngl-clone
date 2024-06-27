@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/adyfp24/gin-ngl-clone/internal/models"
-	"github.com/adyfp24/gin-ngl-clone/pkg/database"
+	"github.com/adyfp24/golang-ngl-clone/app/models"
+	"github.com/adyfp24/golang-ngl-clone/pkg/database"
 )
 
 func RunMigration(){

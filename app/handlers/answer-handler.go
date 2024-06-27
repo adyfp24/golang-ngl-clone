@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/adyfp24/gin-ngl-clone/internal/models"
-	"github.com/adyfp24/gin-ngl-clone/internal/repositories"
+	"github.com/adyfp24/golang-ngl-clone/app/models"
+	"github.com/adyfp24/golang-ngl-clone/app/repositories"
 	"github.com/gin-gonic/gin"
 )
 
