@@ -1,18 +1,18 @@
 {
-    "version": 2,
-    "builds": [
+  "version": 2,
+  "builds": [
       {
-        "src": "api/api.go",
-        "use": "@vercel/go"
+          "src": "api/api.go",
+          "use": "@vercel/go",
+          "config": {
+              "includeFiles": "app/views/**"
+          }
       }
-    ],
-    "routes": [
+  ],
+  "routes": [
       {
-        "src": "/.*",
-        "dest": "/api/api.go"
+          "src": "/.*",
+          "dest": "/api/api.go"
       }
-    ]
-  }
-  
-
-  
+  ]
+}
