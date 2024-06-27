@@ -6,7 +6,10 @@ import (
 
 	"github.com/adyfp24/golang-ngl-clone/app/routes"
 	"github.com/adyfp24/golang-ngl-clone/app/views"
-	"github.com/adyfp24/golang-ngl-clone/pkg/database/migrations"
+	"github.com/adyfp24/golang-ngl-clone/pkg/database"
+
+	// "github.com/adyfp24/golang-ngl-clone/pkg/database"
+	// "github.com/adyfp24/golang-ngl-clone/pkg/database/migrations"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
@@ -14,7 +17,14 @@ import (
 var app *gin.Engine
 
 func init() {
-	migrations.RunMigration()
+	database.InitDB()
+	// db, err := database.InitDB()
+	// if err != nil {
+	// 	panic(fmt.Errorf("failed to connect to database: %v", err))
+	// }
+
+	// migrations.RunMigration(db)
+
     app = gin.New()
     app.Use(gin.Logger())
     app.Use(gin.Recovery())
