@@ -1,0 +1,91 @@
+{{ define "success-sending.html" }}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Adygl</title>
+    <style>
+        body {
+            background: rgb(241, 41, 131);
+            background: linear-gradient(106deg, rgba(241, 41, 131, 1) 31%, rgba(223, 167, 48, 1) 99%);
+        }
+        @keyframes rubberBand {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(0.95);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            65% {
+                transform: scale(0.97);
+            }
+
+            75% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-rubberBand {
+            animation: rubberBand 2s infinite;
+            transform-origin: center;
+        }
+    </style>
+</head>
+
+<body class="h-screen max-h-screen py-6 mx-2">
+    <nav class="mt-2 ml-6">
+        <a href="javascript:history.back()" class="text-3xl text-white">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </nav>
+    <div class="flex flex-col items-center justify-center mx-2">
+        <div class="flex flex-col items-center mx-4 mt-6">
+            <img class="w-28" src="/static/img/ceklist.png" alt="">
+            <h2 class="mt-6 text-2xl font-bold text-white">Terkirim!</h2>
+        </div>
+
+        <div id="bottom-section" class="flex flex-col items-center justify-center mx-4 mt-16">
+            <p class="mx-4 mb-4 text-base font-bold text-center text-white text-wrap">👇2916 orang baru saja mengetuk tombol
+                ini👇</p>
+            <button id="submit"
+                class="w-full px-1 py-5 text-lg font-bold text-white bg-black rounded-full animate-rubberBand">Dapatkan
+                pesan untukmu sendiri!</button>
+            <div class="flex flex-col mt-4">
+                <h3 id="send-other" class="text-xl font-semibold text-white">Kirim pesan lain</h3>
+                <hr class="border-t-2 border-white">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('send-other').addEventListener('click', function () {
+                window.location.href = "/question";
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+{{ end }}

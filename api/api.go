@@ -2,11 +2,13 @@ package handler
 
 import (
 	"html/template"
+	"io/fs"
 	"net/http"
 
 	"github.com/adyfp24/golang-ngl-clone/app/routes"
 	"github.com/adyfp24/golang-ngl-clone/app/views"
 	"github.com/adyfp24/golang-ngl-clone/pkg/database"
+	"github.com/adyfp24/golang-ngl-clone/web"
 
 	// "github.com/adyfp24/golang-ngl-clone/pkg/database"
 	// "github.com/adyfp24/golang-ngl-clone/pkg/database/migrations"
@@ -18,18 +20,12 @@ var app *gin.Engine
 
 func init() {
 	database.InitDB()
-	// db, err := database.InitDB()
-	// if err != nil {
-	// 	panic(fmt.Errorf("failed to connect to database: %v", err))
-	// }
-
-	// migrations.RunMigration(db)
 
     app = gin.New()
     app.Use(gin.Logger())
     app.Use(gin.Recovery())
-    // app.StaticFS("/static", http.Dir("web/static"))
-	
+	defaultFads, _ := fs.Sub(web.Static, "static")
+	app.StaticFS("/static", http.FS(defaultFads))
 	_template, err := template.ParseFS(
 		views.Default,
 		"default/*.html",

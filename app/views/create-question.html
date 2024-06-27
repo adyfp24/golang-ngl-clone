@@ -1,0 +1,112 @@
+{{ define "create-question.html" }}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Adygl</title>
+    <style>
+        body {
+            background: rgb(241, 41, 131);
+            background: linear-gradient(106deg, rgba(241, 41, 131, 1) 31%, rgba(223, 167, 48, 1) 99%);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        @keyframes rubberBand {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(0.95);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            65% {
+                transform: scale(0.97);
+            }
+
+            75% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-rubberBand {
+            animation: rubberBand 2s infinite;
+            transform-origin: center;
+        }
+    </style>
+</head>
+
+<body class="h-screen py-6 mx-2">
+    <div class="mx-4 mt-5 mb-4 h-52 glass rounded-3xl">
+        <div class="flex py-2 mb-2 bg-white rounded-t-3xl">
+            <div class="flex mx-2">
+                <img class="w-12" src="/static/img/Tote_Bag_Mockup__Front_View_1-removebg-preview.png" alt="">
+            </div>
+            <div class="flex flex-col items-start">
+                <h4 class="text-sm font-base">@adyfirdau5_</h4>
+                <h2 class="font-bold">kirimi aku pesan anonim!</h2>
+            </div>
+        </div>
+
+        <div id="form-section" class="mx-4 ">
+            <form id="form-message" action="/create-question" method="POST">
+                <input
+                    class="flex items-start justify-start w-full h-32 text-xl font-semibold text-black placeholder-opacity-50 bg-transparent outline-none placeholder-slate-500 placeholder-inherit"
+                    name="question" id="question" placeholder="kirim pesan anonim padaku..." type="text">
+            </form>
+        </div>
+    </div>
+    <div class="flex flex-col items-center mx-4">
+        <p class="mb-4 text-sm font-light text-white">🔒 tanya-jawab anonim</p>
+        <button id="submit-message"
+            class="w-full px-8 py-3 text-2xl font-bold text-white bg-black rounded-full">kirim!</button>
+    </div>
+
+    <div id="bottom-section" class="flex flex-col items-center justify-center mx-4 mt-28">
+        <p class="mb-4 text-base font-bold text-center text-white text-wrap">👇2916 orang baru saja mengetuk tombol
+            ini👇</p>
+        <button id="submit"
+            class="w-full px-1 py-5 text-lg font-bold text-white bg-black rounded-full animate-rubberBand">Dapatkan
+            pesan untukmu sendiri!</button>
+        <div class="flex mt-4 mb-4">
+            <h3 class="mr-2 text-xs font-semibold text-gray-200">Terms</h3>
+            <h3 class="text-xs font-semibold text-gray-200">Privacy</h3>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('submit-message').addEventListener('click', function () {
+                document.getElementById('form-message').submit();
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+{{ end }}
