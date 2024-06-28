@@ -14,4 +14,9 @@ func InitRoute(route *gin.Engine){
 	route.GET("/question/:id", handlers.ReadQuestionById)
 
 	route.POST("/answer/:id", handlers.CreateAnswer)
+	route.GET("/answer/:id", handlers.ShareAnswer)
+
+	route.GET("/privacy", handlers.PrivacyRender)
+	route.GET("/terms", handlers.TermsRender)
+	route.GET("/soon", handlers.SoonRender)
 }

@@ -66,9 +66,9 @@
     </nav>
     <section id="card" class="flex-1 mx-6 overflow-auto hide-scrollbar">
         {{ range .questions}}
-        <div class="flex h-20 mb-2 border-b-2">
+        <div class="flex h-20 mb-2 border-b-2" onclick="redirectToQuestion('{{ .ID }}')">
             <div class="w-1/5 mr-2 ">
-                <img class="w-full" src="/static/img/Tote_Bag_Mockup__Front_View_1-removebg-preview.png"
+                <img class="w-full md:w-1/5" src="/static/img/Tote_Bag_Mockup__Front_View_1-removebg-preview.png"
                     alt="">
             </div>
             <div class="flex flex-col justify-center w-4/5">
@@ -85,6 +85,12 @@
         Who sent this? 👀
         </button>
     </div>
+
+    <script>
+        function redirectToQuestion(id) {
+            window.location.href = '/question/' + id;
+        }
+    </script>
 </body>
 
 </html>

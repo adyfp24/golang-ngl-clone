@@ -33,6 +33,31 @@ func CreateAnswer(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"answer" : "answer created succesfull",
 	})
+}
 
+func ShareAnswer(c * gin.Context) {
+	messageID, err := strconv.ParseUint(c.Param("id"), 10, 64)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"message" : err.Error(),
+		})
+	}
 
+	question, err := repositories.ShareAnswer(uint(messageID))
+
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"message" : err.Error(),
+		})
+	}
+
+	if question == nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"message" : "pesan tidak ditemukan",
+		})
+	}
+
+	c.HTML(200, "share-answer.html", gin.H{
+		"question" : question,
+	})
 }
