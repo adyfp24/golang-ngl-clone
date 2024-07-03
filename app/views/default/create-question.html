@@ -71,18 +71,24 @@
             </div>
         </div>
 
-        <div id="form-section" class="mx-4 ">
+        <div id="form-section" class="mx-4">
             <form id="form-message" action="/create-question" method="POST">
-                <input
-                    class="flex items-start justify-start w-full h-32 text-xl font-semibold text-black placeholder-opacity-50 bg-transparent outline-none placeholder-slate-500 placeholder-inherit"
-                    name="question" id="question" placeholder="kirim pesan anonim padaku..." type="text">
+                <textarea
+                    class="w-full h-32 text-xl font-semibold text-black placeholder-opacity-50 bg-transparent outline-none placeholder-slate-500 placeholder-inherit"
+                    name="question" id="question" placeholder="kirim pesan anonim padaku..." maxlength="100"
+                    required></textarea>
+                <div id="error-message" class="text-white "></div>
             </form>
         </div>
+
+
     </div>
+
     <div class="flex flex-col items-center mx-4">
         <p class="mb-4 text-sm font-light text-white">🔒 tanya-jawab anonim</p>
-        <button id="submit-message"
-            class="w-full px-8 py-3 text-2xl font-bold text-white bg-black rounded-full">kirim!</button>
+        <button type="button" id="submit-message"
+            class="w-full px-8 py-3 text-2xl font-bold text-white bg-black rounded-full"
+            onclick="submitForm()">kirim!</button>
     </div>
 
     <div id="bottom-section" class="flex flex-col items-center justify-center mx-4 mt-28">
@@ -98,20 +104,51 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('submit-message').addEventListener('click', function () {
+        function submitForm() {
+            var isValid = validateForm();
+            if (isValid) {
                 document.getElementById('form-message').submit();
-            });
-        });
+            }
+        }
+
+        function validateForm() {
+            var question = document.getElementById('question').value.trim();
+            var regex = /^[a-zA-Z0-9 .,!?\-]*$/;
+
+            if (!regex.test(question)) {
+                displayErrorMessage("use valid number or letter only");
+                return false;
+            }
+
+            if (question.length > 100) {
+                displayErrorMessage("Question cannot exceed 100 characters.");
+                return false;
+            }
+
+            if (question.length === 0) {
+                displayErrorMessage("Question cannot be empty.");
+                return false;
+            }
+
+            var errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = '';
+
+            return true;
+        }
+
+        function displayErrorMessage(message) {
+            var errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = message;
+        }
 
         function redirectToTerms() {
             window.location.href = '/terms';
         }
-        
+
         function redirectToSoon() {
             window.location.href = '/soon';
         }
-        
+
         function redirectToPrivacy() {
             window.location.href = '/privacy';
         }
@@ -119,4 +156,4 @@
 </body>
 
 </html>
-{{end}}
+{{ end }}
