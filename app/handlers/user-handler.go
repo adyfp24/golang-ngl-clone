@@ -11,3 +11,8 @@ func SoonRender(c *gin.Context){
 func TermsRender(c *gin.Context){
 	c.HTML(200, "terms.html", nil)
 }
+
+func HomeRender(c *gin.Context){
+	c.HTML(200, "home.html", nil)
+}
+

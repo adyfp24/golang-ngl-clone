@@ -19,6 +19,4 @@ func InitRoute(route *gin.Engine){
 	route.GET("/privacy", handlers.PrivacyRender)
 	route.GET("/terms", handlers.TermsRender)
 	route.GET("/soon", handlers.SoonRender)
-
-	
 }
