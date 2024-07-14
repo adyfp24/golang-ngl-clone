@@ -59,10 +59,10 @@
     <nav class="flex items-center justify-around my-3">
         <img class="w-8" src="/static/img/eye.png" alt="">
         <div class="flex">
-            <h1 class="mr-4 text-xl font-bold text-gray-200">PLAY</h1>
+            <h1 onclick="redirectToPlay()" class="mr-4 text-xl font-bold text-gray-200">PLAY</h1>
             <h1 class="text-xl font-bold">INBOX</h1>
         </div>
-        <img class="w-7" src="/static/img/setting.png" alt="">
+        <img class="w-6" src="/static/img/setting.png" alt="">
     </nav>
     <section id="card" class="flex-1 mx-6 mt-4 overflow-auto hide-scrollbar">
         {{ range .questions}}
@@ -92,6 +92,11 @@
         function redirectToQuestion(id) {
             window.location.href = '/question/' + id;
         }
+        
+        function redirectToPlay() {
+            window.location.href = '/';
+        }
+
     </script>
 </body>
 

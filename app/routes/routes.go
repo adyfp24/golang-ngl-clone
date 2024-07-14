@@ -7,6 +7,7 @@ import(
 
 func InitRoute(route *gin.Engine){
 
+	route.GET("/", handlers.HomeRender)
 	route.GET("/question", handlers.QuestionRender)
 	route.POST("/create-question", handlers.CreateQuestion)
 

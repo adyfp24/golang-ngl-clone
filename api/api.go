@@ -36,10 +36,6 @@ func init() {
 	app.SetHTMLTemplate(_template)
 
     app.Use(cors.Default())
-    app.GET("/", func(ctx *gin.Context) {
-        ctx.String(200, "welcome to ngl clone")
-    })
-
     routes.InitRoute(app)
 }
 

@@ -13,6 +13,8 @@ func TermsRender(c *gin.Context){
 }
 
 func HomeRender(c *gin.Context){
-	c.HTML(200, "home.html", nil)
+	c.HTML(200, "play.html", nil)
 }
+
+
 

@@ -1,0 +1,50 @@
+{{ define "play.html" }}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Adygl</title>
+</head>
+<body class="flex flex-col max-h-screen">
+    <nav class="flex items-center justify-around my-3">
+        <img class="w-8" src="/static/img/eye.png" alt="">
+        <div class="flex">
+            <h1 class="mr-4 text-xl font-bold">PLAY</h1>
+            <h1 onclick="redirectToInbox()" class="text-xl font-bold text-gray-200">INBOX</h1>
+        </div>
+        <img class="w-6" src="/static/img/setting.png" alt="">
+    </nav>
+    <section class="flex flex-col items-center mx-6 mt-2">
+        <div class="flex items-center justify-center w-full">
+            <img class="w-full sm:w-1/4" src="/static/img/head.jpeg" alt="">
+        </div>
+
+        <div class="flex flex-col items-center justify-center w-full px-4 py-4 mt-8 bg-gray-100 sm:w-1/2 rounded-3xl">
+            <h3 class="mb-4 text-lg font-bold">Langkah 1: Salin tautanmu</h3>
+            <h5 class="mb-4 text-sm font-semibold text-gray-300">ADYGL.LINK/ADYFIRDAU5_65780</h5>
+            <button class="px-6 py-1 font-bold text-red-400 border-2 border-red-400 rounded-2xl">salin tautan</button>
+        </div>
+
+        <div class="flex flex-col items-center justify-center w-full px-4 py-4 mt-5 bg-gray-100 rounded-3xl sm:w-1/2">
+            <h3 class="mb-4 text-lg font-bold text-center">Langkah 2: Bagikan tautanmu ke instagram story-mu</h3>
+            <button onclick="redirectToQuestion()" style="background: rgb(241, 41, 131);
+            background: linear-gradient(106deg, rgba(241, 41, 131, 1) 31%, rgba(223, 167, 48, 1) 99%);" class="w-full px-6 py-4 font-bold text-white rounded-3xl">Bagikan!</button>
+        </div>
+    </section>
+
+    <script>
+        function redirectToInbox(){
+            window.location.href = '/question-all';
+        }
+
+        function redirectToQuestion(){
+            window.location.href = '/question'
+        }
+    </script>
+</body>
+</html>
+
+{{ end }}
